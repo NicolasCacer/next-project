@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-screen`}>
 
-        <header className="w-full bg-red-500 text-center p-4">
+        <header className="w-full bg-red-500 text-center p-2">
           header
         </header>
 
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
 
-        <footer className="w-full bg-blue-500 text-center p-4">
+        <footer className="w-full bg-blue-500 text-center p-2">
           footer &reg;
         </footer>
 
