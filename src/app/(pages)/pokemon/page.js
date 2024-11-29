@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';  // Import the Image component
 
 export default function Page() {
   const [pokemonName, setPokemonName] = useState('pikachu'); // Default to 'pikachu'
@@ -46,28 +47,31 @@ export default function Page() {
         placeholder="Enter Pokémon name or ID"
         value={pokemonName}
         onChange={handleInputChange}
-        className="border p-2 rounded mb-4 text-black"
+        className="border p-2 rounded-l-lg mb-4 text-black h-[40px]"
       />
       <button
         onClick={handleSearchClick}
-        className="bg-blue-500 text-white p-2 rounded mb-4"
+        className="bg-blue-500 text-white p-2 rounded-r-lg mb-4 h-[40px]"
       >
         Search
       </button>
       {loading ? (
         <p>Cargando...</p>
       ) : pokemon ? (
-        <>
+        <div className="flex flex-col justify-center items-center">
           <h1 className="text-2xl font-bold">{pokemon.name}</h1>
-          <img
+          <Image
             src={pokemon.sprites.front_default}
             alt={pokemon.name}
-            className="mx-auto"
+            width={200}  // Set a fixed width for the image (or choose a suitable value)
+            height={200} // Set a fixed height for the image (or choose a suitable value)
+            className='h-[200px] w-[200px]'
+            priority
           />
           <p className="mt-2">ID: {pokemon.id}</p>
           <p>Height: {pokemon.height} decimeters</p>
           <p>Weight: {pokemon.weight} hectograms</p>
-        </>
+        </div>
       ) : (
         <p>No Pokémon found. Please try again.</p>
       )}
