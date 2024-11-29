@@ -1,5 +1,6 @@
 'use client'
 import { useRouter } from "next/navigation";
+import DashboardButton from "./components/dashboard/main";
 
 export default function Home() {
   const router = useRouter();
@@ -7,7 +8,7 @@ export default function Home() {
   return (
     <div className="">
       <main className="flex flex-col">
-        <button className="bg-orange-500 shadow-xl p-2 rounded-full hover:bg-orange-800" onClick={()=>router.push('/dashboard')}>Dashboard</button>
+        <DashboardButton />
       </main>
     </div>
   );
