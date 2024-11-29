@@ -43,11 +43,14 @@ export default function Page() {
     <div className="container text-center">
       <h1 className="text-2xl font-bold mb-4">Search for a Pokémon</h1>
       <input
+        id="name"
         type="text"
         placeholder="Enter Pokémon name or ID"
         value={pokemonName}
         onChange={handleInputChange}
         className="border p-2 rounded-l-lg mb-4 text-black h-[40px]"
+        autoComplete="off"  // Disables the browser's autofill for this field (optional, based on preference)
+        aria-autocomplete="list" // Provides a hint for screen readers
       />
       <button
         onClick={handleSearchClick}
