@@ -1,8 +1,8 @@
-export default function Dashboard() {
-
-    return (
-      <div>
-        <h1>Login</h1>
-      </div>
-    );
-  }
+// app/login/page.js (Login page)
+export default function LoginPage() {
+  return (
+    <div>
+      <h2>Login Form</h2>
+    </div>
+  );
+}
