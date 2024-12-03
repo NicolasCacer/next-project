@@ -1,3 +1,4 @@
+import ModeToggle from "../mode/mode"
 export default function NavBar(){
     return(
         <nav className="bg-black p-4 flex justify-between items-center">
@@ -14,6 +15,7 @@ export default function NavBar(){
                 </svg>
               </button>
               <section className="hidden sm:flex sm:justify-center sm:items-center sm:gap-5">
+                <ModeToggle />
                 <button>
                   Home
                 </button>

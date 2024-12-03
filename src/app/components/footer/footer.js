@@ -18,7 +18,7 @@ export default function Footer(){
         <div className="text-sm">Powered by Next.js</div>
         <section className="flex gap-10 p-2">
           <button>
-            &copy; Next 2024
+            &copy; Nico 2024
           </button>
         </section>
       </footer>
