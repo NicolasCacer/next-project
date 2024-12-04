@@ -1,7 +1,6 @@
 'use client'
 import ModeToggle from "../mode/mode"
 import { useRouter } from "next/navigation"
-import Link from 'next/link';
 
 export default function NavBar(){
   const router = useRouter();
