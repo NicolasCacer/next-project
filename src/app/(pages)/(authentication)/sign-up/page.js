@@ -1,11 +1,12 @@
 'use client'
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 export default function LoginPage() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     const router = useRouter();
 
     const handleSubmit = async (e) => {
@@ -18,23 +19,11 @@ export default function LoginPage() {
         }
 
         try {
-            const response = await fetch("/api/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, password }),
-            });
-
-            if (!response.ok) {
-                throw new Error("Invalid email or password");
-            }
-
-            const data = await response.json();
-            
-            // Save token/session (example: cookie-based)
-            document.cookie = `authToken=${data.token}; path=/;`;
-
-            // Redirect on success
-            router.push("/dashboard");
+            Swal.fire({
+              icon: "success",
+              title: "Success!",
+              text: "Your operation was completed successfully.",
+            })
         } catch (err) {
             setError(err.message);
         }
@@ -44,7 +33,7 @@ export default function LoginPage() {
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <form 
                 onSubmit={handleSubmit} 
-                className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-sm"
+                className="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 w-full max-w-sm"
             >
                 <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
 
