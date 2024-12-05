@@ -18,8 +18,12 @@ export default function Home() {
           <section className="flex items-center gap-3 px-4">
             <ModeToggle />
             <MenuIcon />
-            <button className="bg-white hidden sm:block dark:bg-gray-800 border-2 border-black py-2 px-3 rounded-full dark:border-white">Sign up</button>
-            <button className="bg-gray-800 hidden sm:block text-white font-bold dark:bg-black border-2 border-gray-800 dark:border-white py-2 px-3 rounded-full">Login</button>
+            <button onClick={()=>router.push('/sign-up')} className="bg-white hidden sm:block dark:bg-gray-800 border-2 border-black py-2 px-3 rounded-full dark:border-white">
+              Sign up
+            </button>
+            <button onClick={()=>router.push('/login')} className="bg-gray-800 hidden sm:block text-white font-bold dark:bg-black border-2 border-gray-800 dark:border-white py-2 px-3 rounded-full">
+              Login
+            </button>
           </section>
         </nav>
       </header>
