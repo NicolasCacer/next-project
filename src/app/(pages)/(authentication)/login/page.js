@@ -20,27 +20,31 @@ export default function LoginPage() {
 
         try {
             Swal.fire({
-              icon: "success",
-              title: "Success!",
-              text: "Your operation was completed successfully.",
-            })
+                icon: "success",
+                title: "Login Successful!",
+                timer: 1500, // Dismiss after 2 seconds
+                showConfirmButton: false // Hide the confirm button
+            }).then(() => {
+                // Redirect to login or dashboard after registration
+                router.push('/dashboard');
+            });
         } catch (err) {
             setError(err.message);
         }
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800">
             <form 
                 onSubmit={handleSubmit} 
-                className="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 w-full max-w-sm"
+                className="shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 w-full max-w-sm bg-gray-100 dark:bg-gray-800"
             >
-                <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+                <h2 className="text-2xl font-bold mb-4 text-center text-currentColor">Login</h2>
 
                 {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
 
                 <div className="mb-4">
-                    <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+                    <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2 text-currentColor">
                         Email
                     </label>
                     <input
@@ -54,7 +58,7 @@ export default function LoginPage() {
                 </div>
 
                 <div className="mb-6">
-                    <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
+                    <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2 text-currentColor">
                         Password
                     </label>
                     <input
