@@ -9,20 +9,24 @@ export default function Home() {
 
   return (
     <section className='flex flex-col justify-center items-center h-screen'>
-      <header className="bg-white dark:bg-[#171717] shadow-xl w-full flex justify-center items-center z-10">
+      <header className="bg-white dark:bg-[#171717] shadow-md w-full flex justify-center items-center z-10">
         <nav className="flex justify-between items-center w-full">
           <section className="flex items-center">
             <Logo stroke={'currentColor'} />
             <p className="text-2xl">MyProjects</p>
           </section>
-          <section className="flex items-center gap-3">
+          <section className="flex items-center gap-3 px-4">
             <ModeToggle />
             <MenuIcon />
+            <button className="bg-white hidden sm:block dark:bg-gray-800 border-2 border-black py-2 px-3 rounded-full dark:border-white">Sign up</button>
+            <button className="bg-gray-800 hidden sm:block text-white font-bold dark:bg-black border-2 border-gray-800 dark:border-white py-2 px-3 rounded-full">Login</button>
           </section>
         </nav>
       </header>
-      <main className="bg-white dark:bg-gray-700 flex-1 w-full flex justify-center items-center">
-      main
+      <main className="bg-white dark:bg-gray-700 flex-1 w-full h-auto overflow-y-auto flex flex-col lg:flex-row  gap-3 p-3">
+        <div className="bg-white border-2 dark:border-gray-400 dark:bg-gray-700 p-4 w-full h-full min-h-[300px] rounded-lg">left pane</div>
+        <div className="bg-white border-2 dark:border-gray-400 dark:bg-gray-700 p-4 w-full h-full min-h-[300px] rounded-lg">middle pane</div>
+        <div className="bg-white border-2 dark:border-gray-400 dark:bg-gray-700 p-4 w-full h-full min-h-[300px] rounded-lg">right pane</div>
       </main>
       <footer className="bg-white dark:bg-[#171717] w-full flex justify-between p-1 items-center border-t-2 border-inherit dark:border-none">
       <section className="flex gap-1 p-1">
@@ -40,9 +44,9 @@ export default function Home() {
           </svg>
         </section>
         <section className="flex gap-10 p-2">
-          <button>
+          <p>
             &copy; Nico 2024
-          </button>
+          </p>
         </section>
       </footer>
     </section>
