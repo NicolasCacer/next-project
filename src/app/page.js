@@ -4,9 +4,24 @@ import ModeToggle from "./components/mode/mode";
 import Logo from "./components/icons/IconLogo";
 import MenuIcon from "./components/icons/menuIcon";
 import { getUsers } from "./helpers/users";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
+  const [users, setUsers] = useState([]); // State to store fetched users
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getUsers();
+        const data = await response.json(); // Assuming getUsers returns a promise
+        setUsers(data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <section className="flex flex-col justify-center items-center h-screen">
@@ -27,7 +42,7 @@ export default function Home() {
             </button>
             <button
               onClick={() => {
-                router.push("/login"), getUsers();
+                router.push("/login");
               }}
               className="bg-gray-800 hidden sm:block text-white font-bold dark:bg-black border-2 border-gray-800 dark:border-white py-2 px-3 rounded-full"
             >
@@ -42,6 +57,17 @@ export default function Home() {
         </div>
         <div className="bg-white border-2 dark:border-gray-400 dark:bg-gray-700 p-4 w-full h-full min-h-[300px] rounded-lg">
           middle pane
+          {/* Display users if any */}
+          {users.length > 0 && (
+            <section>
+              <h2>Users</h2>
+              <ul>
+                {users.map((user) => (
+                  <li key={user.id}>{user.name}</li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
         <div className="bg-white border-2 dark:border-gray-400 dark:bg-gray-700 p-4 w-full h-full min-h-[300px] rounded-lg">
           right pane
