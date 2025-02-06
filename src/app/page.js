@@ -9,10 +9,10 @@ import { useEffect } from "react";
 export default function Home() {
   const router = useRouter();
   useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL + "/users";
+    const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
     fetch(apiUrl) // Replace with your actual API URL
       .then((response) => response.json()) // This will fail if response is plain text
-      .then((data) => console.log("Fetched Data:", data))
+      .then((data) => console.log(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
