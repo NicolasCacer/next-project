@@ -3,9 +3,18 @@ import { useRouter } from "next/navigation";
 import ModeToggle from "./components/mode/mode";
 import Logo from "./components/icons/IconLogo";
 import MenuIcon from "./components/icons/menuIcon";
+import "dotenv/config";
+import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
+  useEffect(() => {
+    const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL + "/users";
+    fetch(apiUrl) // Replace with your actual API URL
+      .then((response) => response.json()) // This will fail if response is plain text
+      .then((data) => console.log("Fetched Data:", data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
   return (
     <section className="flex flex-col justify-center items-center h-screen">
